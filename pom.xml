@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xmcares</groupId>
+    <artifactId>faceserver_test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <jdk.version>1.7</jdk.version>
+        <servlet.version>3.0.1</servlet.version>
+        <servlet-jstl.version>1.2</servlet-jstl.version>
+        <jsp.version>2.2</jsp.version>
+        <javax-el.version>2.2.4</javax-el.version>
+        <cxf.version>3.0.3</cxf.version>
+        <poi.version>3.9</poi.version>
+        <imcc-smark.version>1.2.5-SNAPSHOT</imcc-smark.version>
+        <fastjson.version>1.2.9</fastjson.version>
+        <!-- <imcc-smack.version>1.2.4.1-SNAPSHOT</imcc-smack.version> -->
+        <xcf.version>2.5.0.11-SNAPSHOT</xcf.version>
+        <ojdbc.version>10.2.0.4.0</ojdbc.version>
+        <jtds.version>1.3.1</jtds.version>
+        <edb.version>14</edb.version>
+        <!-- <sqlserver.version>4.0</sqlserver.version> -->
+        <redis.version>1.7.5.RELEASE</redis.version>
+        <jedis.version>2.8.1</jedis.version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-core</artifactId>
+            <version>${xcf.version}</version>
+            <!-- 该1.2.4版本有漏洞，用1.2.9替代 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba</groupId>
+                    <artifactId>fastjson</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--Fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-foundation-web</artifactId>
+            <version>${xcf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-security-web</artifactId>
+            <version>${xcf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-privilege</artifactId>
+            <version>${xcf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-integration-report</artifactId>
+            <version>${xcf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xmcares.framework</groupId>
+            <artifactId>xcf-rules</artifactId>
+            <version>${xcf.version}</version>
+        </dependency>
+
+        <!-- oracle驱动 -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+            <version>${ojdbc.version}</version>
+            <!-- <scope>runtime</scope> -->
+        </dependency>
+
+        <!-- SQLSERVER驱动 -->
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>${jtds.version}</version>
+        </dependency>
+        <!-- <dependency> <groupId>com.microsoft</groupId> <artifactId>sqlserver.jdbc</artifactId>
+            <version>${sqlserver.version}</version> </dependency> -->
+
+        <!-- EDB驱动 -->
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>xmky.edb</artifactId>
+            <version>${edb.version}</version>
+        </dependency>
+
+
+        <!--<dependency> <groupId>com.xmcares.framework</groupId> <artifactId>xcf-integration-cxf</artifactId>
+            </dependency> <dependency> <groupId>com.xmcares.framework</groupId> <artifactId>xcf-integration-imgcode</artifactId>
+            </dependency> -->
+        <!--<dependency> <groupId>postgresql</groupId> <artifactId>postgresql</artifactId>
+            <version>${postgre.version}</version> <scope>runtime</scope> </dependency>
+            <dependency> <groupId>com.microsoft.sqlserver</groupId> <artifactId>sqljdbc4</artifactId>
+            <version>${sqlserver.version}</version> </dependency> -->
+        <!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version> </dependency> -->
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${servlet-jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${jsp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${javax-el.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.8.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.8.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- cxf -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-service-description</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>asm</groupId>
+                    <artifactId>asm</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+        <!-- poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <!-- imcc -->
+        <dependency>
+            <groupId>com.xmcares.imcc</groupId>
+            <artifactId>imcc-smark</artifactId>
+            <version>${imcc-smark.version}</version>
+        </dependency>
+        <!-- <dependency> <groupId>com.xmcares.imcc</groupId> <artifactId>imcc-smack</artifactId>
+            <version>${imcc-smack.version}</version> </dependency> -->
+        <!-- 拼音首字母 -->
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
+        <!-- JAXB处理CDATA类型所需要的配置 -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+            <version>2.0.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-cache</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+        <!-- xfud -->
+        <dependency>
+            <groupId>javax.xml</groupId>
+            <artifactId>jaxrpc-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-discovery</groupId>
+            <artifactId>commons-discovery</artifactId>
+            <version>0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.soap</groupId>
+            <artifactId>javax.xml.soap-api</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.java.net.substance/substance -->
+
+        <dependency>
+            <groupId>org.java.net.substance</groupId>
+            <artifactId>substance</artifactId>
+            <version>5.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+        <!--<dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.21</version> </dependency> -->
+
+        <!-- redis -->
+        <!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId>
+            <version>1.6.0.RELEASE</version> <exclusions> <exclusion> <groupId>org.springframework</groupId>
+            <artifactId>*</artifactId> </exclusion> </exclusions> </dependency> <dependency>
+            <groupId>redis.clients</groupId> <artifactId>jedis</artifactId> <version>2.8.1</version>
+            </dependency> -->
+
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <!--<fork>true</fork> <meminitial>128m</meminitial> <maxmem>512m</maxmem> -->
+                    <compilerArguments>
+                        <verbose/>
+                        <!-- <bootclasspath>${java.home}/lib/rt.jar</bootclasspath> -->
+                        <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+        <finalName>scims-server</finalName>
+    </build>
+
+</project>

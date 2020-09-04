@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.xmcares.framework:xcf-security:2.5.0.11-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xmcares/framework/xcf-security/2.5.0.11-SNAPSHOT/xcf-security-2.5.0.11-20170925.084019-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xmcares/framework/xcf-security/2.5.0.11-SNAPSHOT/xcf-security-2.5.0.11-20170925.084019-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/xmcares/framework/xcf-security/2.5.0.11-SNAPSHOT/xcf-security-2.5.0.11-20170925.084019-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
